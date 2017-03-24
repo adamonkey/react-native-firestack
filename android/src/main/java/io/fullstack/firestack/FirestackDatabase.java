@@ -249,7 +249,7 @@ class FirestackDBReference {
         Log.d(TAG, "limitToFirst: " + limit);
         query = query.limitToFirst(limit);
       } else if (methStr.contains("equalTo")) {
-        String value = strArr[1];
+        int value = parseInt(strArr[1]);
         String key = strArr.length >= 3 ? strArr[2] : null;
         if (key == null) {
           query = query.equalTo(value);
