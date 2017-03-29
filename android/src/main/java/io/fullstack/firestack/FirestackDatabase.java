@@ -257,7 +257,7 @@ class FirestackDBReference {
           query = query.equalTo(value, key);
         }
       } else if (methStr.contains("endAt")) {
-        String value = strArr[1];
+        int value = parseInt(strArr[1]);
         String key = strArr.length >= 3 ? strArr[2] : null;
         if (key == null) {
           query = query.endAt(value);
@@ -265,7 +265,7 @@ class FirestackDBReference {
           query = query.endAt(value, key);
         }
       } else if (methStr.contains("startAt")) {
-        String value = strArr[1];
+        int value = parseInt(strArr[1]);
         String key = strArr.length >= 3 ? strArr[2] : null;
         if (key == null) {
           query = query.startAt(value);
