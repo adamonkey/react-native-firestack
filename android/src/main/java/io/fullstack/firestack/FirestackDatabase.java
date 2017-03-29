@@ -639,7 +639,7 @@ class FirestackDatabaseModule extends ReactContextBaseJavaModule {
         Log.d(TAG, "limitToFirst: " + limit);
         query = query.limitToFirst(limit);
       } else if (methStr.contains("equalTo")) {
-        String value = strArr[1];
+        Integer value = Integer.parseInt(strArr[1]);
         String key = strArr.length >= 3 ? strArr[2] : null;
         if (key == null) {
           query = query.equalTo(value);
@@ -647,7 +647,7 @@ class FirestackDatabaseModule extends ReactContextBaseJavaModule {
           query = query.equalTo(value, key);
         }
       } else if (methStr.contains("endAt")) {
-        String value = strArr[1];
+        Integer value = Integer.parseInt(strArr[1]);
         String key = strArr.length >= 3 ? strArr[2] : null;
         if (key == null) {
           query = query.endAt(value);
@@ -655,7 +655,7 @@ class FirestackDatabaseModule extends ReactContextBaseJavaModule {
           query = query.endAt(value, key);
         }
       } else if (methStr.contains("startAt")) {
-        String value = strArr[1];
+        Integer value = Integer.parseInt(strArr[1]);
         String key = strArr.length >= 3 ? strArr[2] : null;
         if (key == null) {
           query = query.startAt(value);
