@@ -69,13 +69,13 @@
             int size = (int)[args count];;
 
             if (size > 2) {
-              NSString *value = args[1];
+              NSUInteger *value = args[1].integerValue;
               NSString *key = args[2];
 
               query = [query queryEqualToValue:value
                                         childKey:key];
             } else {
-              NSString *value = args[1];
+              NSUInteger *value = args[1].integerValue;
               query = [query queryEqualToValue:value];
             }
         } else if ([str containsString:@"endAt"]) {
@@ -83,26 +83,26 @@
             int size = (int)[args count];;
 
             if (size > 2) {
-              NSString *value = args[1];
+              NSUInteger *value = args[1].integerValue;
               NSString *key = args[2];
 
               query = [query queryEndingAtValue:value
                                          childKey:key];
             } else {
-              NSString *value = args[1];
+              NSUInteger *value = args[1].integerValue;
               query = [query queryEndingAtValue:value];
             }
         } else if ([str containsString:@"startAt"]) {
             NSArray *args = [str componentsSeparatedByString:@":"];
             int size = (int)[args count];;
             if (size > 2) {
-              NSString *value = args[1];
+              NSUInteger *value = args[1].integerValue;
               NSString *key = args[2];
 
               query = [query queryStartingAtValue:value
                                            childKey:key];
             } else {
-              NSString *value = args[1];
+              NSUInteger *value = args[1].integerValue;
               query = [query queryStartingAtValue:value];
             }
         }
