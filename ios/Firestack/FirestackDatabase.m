@@ -67,49 +67,35 @@
         } else if ([str containsString:@"equalTo"]) {
             NSArray *args = [str componentsSeparatedByString:@":"];
             int size = (int)[args count];;
-
-            if (size > 2) {
-              NSString *value_str = args[1]
-              NSUInteger value = value_str.integerValue;
-              NSString *key = args[2];
-
-              query = [query queryEqualToValue:value
+            id value = [self getIdValue:args[1] type:args[2]];
+            if (size > 3) {
+                NSString *key = args[3];
+                query = [query queryEqualToValue:value
                                         childKey:key];
             } else {
-              NSString *value_str = args[1]
-              NSUInteger value = value_str.integerValue;
-              query = [query queryEqualToValue:value];
+                query = [query queryEqualToValue:value];
             }
         } else if ([str containsString:@"endAt"]) {
             NSArray *args = [str componentsSeparatedByString:@":"];
             int size = (int)[args count];;
-
-            if (size > 2) {
-              NSString *value_str = args[1]
-              NSUInteger value = value_str.integerValue;
-              NSString *key = args[2];
-
-              query = [query queryEndingAtValue:value
+            id value = [self getIdValue:args[1] type:args[2]];
+            if (size > 3) {
+                NSString *key = args[3];
+                query = [query queryEndingAtValue:value
                                          childKey:key];
             } else {
-              NSString *value_str = args[1]
-              NSUInteger value = value_str.integerValue;
-              query = [query queryEndingAtValue:value];
+                query = [query queryEndingAtValue:value];
             }
         } else if ([str containsString:@"startAt"]) {
             NSArray *args = [str componentsSeparatedByString:@":"];
+            id value = [self getIdValue:args[1] type:args[2]];
             int size = (int)[args count];;
-            if (size > 2) {
-              NSString *value_str = args[1]
-              NSUInteger value = value_str.integerValue;
-              NSString *key = args[2];
-
-              query = [query queryStartingAtValue:value
+            if (size > 3) {
+                NSString *key = args[3];
+                query = [query queryStartingAtValue:value
                                            childKey:key];
             } else {
-              NSString *value_str = args[1]
-              NSUInteger value = value_str.integerValue;
-              query = [query queryStartingAtValue:value];
+                query = [query queryStartingAtValue:value];
             }
         }
     }
